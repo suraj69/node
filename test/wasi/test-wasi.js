@@ -50,6 +50,7 @@ if (process.argv[2] === 'wasi-child') {
       opts.input = options.stdin;
 
     const child = cp.spawnSync(process.execPath, [
+      ...process.argv.slice(1, -1),
       '--experimental-wasi-unstable-preview1',
       __filename,
       'wasi-child',
